@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -253,7 +253,7 @@
             this.pnGb_Categoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnGb_Categoria.Location = new System.Drawing.Point(0, 65);
             this.pnGb_Categoria.Name = "pnGb_Categoria";
-            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 355);
+            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 65);
             this.pnGb_Categoria.TabIndex = 1;
             // 
             // gbCategoria
@@ -272,7 +272,7 @@
             this.gbCategoria.ForeColor = System.Drawing.Color.White;
             this.gbCategoria.Location = new System.Drawing.Point(0, 0);
             this.gbCategoria.Name = "gbCategoria";
-            this.gbCategoria.Size = new System.Drawing.Size(844, 318);
+            this.gbCategoria.Size = new System.Drawing.Size(844, 28);
             this.gbCategoria.TabIndex = 0;
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "Nova ocorrência:";
@@ -282,7 +282,7 @@
             this.gbPesquisa.Controls.Add(this.btnPesquisar);
             this.gbPesquisa.Controls.Add(this.txtPesquisa);
             this.gbPesquisa.ForeColor = System.Drawing.Color.White;
-            this.gbPesquisa.Location = new System.Drawing.Point(35, 229);
+            this.gbPesquisa.Location = new System.Drawing.Point(35, 226);
             this.gbPesquisa.Name = "gbPesquisa";
             this.gbPesquisa.Size = new System.Drawing.Size(362, 68);
             this.gbPesquisa.TabIndex = 21;
@@ -295,11 +295,11 @@
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.ForeColor = System.Drawing.Color.Black;
-            this.btnPesquisar.Location = new System.Drawing.Point(262, 35);
+            this.btnPesquisar.Location = new System.Drawing.Point(244, 35);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(94, 27);
+            this.btnPesquisar.Size = new System.Drawing.Size(112, 27);
             this.btnPesquisar.TabIndex = 22;
-            this.btnPesquisar.Text = "VAI TEIA";
+            this.btnPesquisar.Text = "PESQUISAR";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
@@ -378,19 +378,19 @@
             this.refreshToolStripMenuItem,
             this.opDeletar_Campo});
             this.menuCategoria.Name = "menuCategoria";
-            this.menuCategoria.Size = new System.Drawing.Size(181, 70);
+            this.menuCategoria.Size = new System.Drawing.Size(149, 48);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // opDeletar_Campo
             // 
             this.opDeletar_Campo.Name = "opDeletar_Campo";
-            this.opDeletar_Campo.Size = new System.Drawing.Size(160, 22);
+            this.opDeletar_Campo.Size = new System.Drawing.Size(148, 22);
             this.opDeletar_Campo.Text = "Excluir campo";
             this.opDeletar_Campo.Click += new System.EventHandler(this.opDeletar_Campo_Click);
             // 
@@ -445,7 +445,7 @@
             this.gbUsuario.Controls.Add(this.btnUsuario_Slider);
             this.gbUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbUsuario.ForeColor = System.Drawing.Color.White;
+            this.gbUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.gbUsuario.Location = new System.Drawing.Point(0, 0);
             this.gbUsuario.Name = "gbUsuario";
             this.gbUsuario.Size = new System.Drawing.Size(844, 28);
@@ -622,14 +622,14 @@
             this.dgvEquipamento.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvEquipamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEquipamento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEquipamento.ColumnHeadersHeight = 35;
             this.dgvEquipamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEquipamento.Location = new System.Drawing.Point(0, 0);
