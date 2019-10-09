@@ -21,6 +21,13 @@ namespace prjEstoque.Entity
             DataOcorrencia = dataOcorrencia;
         }
 
+        public Ocorrencia(int codUsuario, double valorAlcool, DateTime dataOcorrencia)
+        {
+            CodUsuario = codUsuario;
+            ValorAlcool = valorAlcool;
+            DataOcorrencia = dataOcorrencia;
+        }
+
         public int CodOcorrencia { get; set; }
         public int CodUsuario { get; set; }
         public double ValorAlcool { get; set; }

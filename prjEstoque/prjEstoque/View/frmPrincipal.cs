@@ -36,9 +36,7 @@ namespace prjEstoque
         private void btnCategoria_Slider_Click(object sender, EventArgs e)
         {
             util.Slider(pnGb_Categoria, gbCategoria, btnCategoria_Slider, 297, 832);
-
-            Model.MODEL_Ocorrencia mOcorrencia = new Model.MODEL_Ocorrencia();
-            dgvOcorrencias.DataSource = mOcorrencia.GetAll();
+            refreshToolStripMenuItem_Click(null, null);
         }
 
         private void btnSlide_Click(object sender, EventArgs e)
@@ -105,6 +103,7 @@ namespace prjEstoque
             Model.MODEL_Usuario mUsuario = new Model.MODEL_Usuario();
             dgvUsuarios.DataSource = mUsuario.GetAll();
             FormatarDgv.FormatarUsuario(dgvUsuarios);
+            util.LimparCampos(gbUsuario.Controls);
         }
 
         private void atualizarCampoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,6 +119,77 @@ namespace prjEstoque
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             util.LimparCampos(gbUsuario.Controls);
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Ocorrencia mOcor = new Model.MODEL_Ocorrencia();
+            dgvOcorrencias.DataSource = mOcor.GetAll();
+            FormatarDgv.FormatarOcorrencia(dgvOcorrencias);
+            util.LimparCampos(gbCategoria.Controls);
+        }
+
+        private void btnCadastrar_Ocorrencia_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Ocorrencia mOcor = new Model.MODEL_Ocorrencia();
+            Model.MODEL_Usuario mUsu = new Model.MODEL_Usuario();
+            List<Usuario> list = mUsu.GetAll();
+            int i = 0, codUsuario = 0;
+            foreach(Usuario s in list)
+            {
+                if(s.Nome.Equals(cbUsuario.Text))
+                {
+                    codUsuario = list[i].CodUsuario;
+                    break;
+                }
+                i++;
+            }
+
+            Ocorrencia u = new Ocorrencia(codUsuario, double.Parse(txtAlcool.Text), DateTime.Now);
+            if (mOcor.Insert(u) == 0)
+                MessageBox.Show("Erro ao inserir o registro!");
+            else
+                refreshToolStripMenuItem_Click(null, null);
+        }
+
+        private void btnLimpar_Ocorrencia_Click(object sender, EventArgs e)
+        {
+            util.LimparCampos(gbCategoria.Controls);
+        }
+
+        private void opDeletar_Campo_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Ocorrencia mocor = new Model.MODEL_Ocorrencia();
+            if (mocor.Delete(int.Parse(dgvOcorrencias[0, dgvOcorrencias.CurrentRow.Index].Value.ToString())) == 0)
+                MessageBox.Show("Erro ao excluir o registro!");
+            else
+                refreshToolStripMenuItem_Click(null, null);
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Usuario usu = new Model.MODEL_Usuario();
+            Model.MODEL_Ocorrencia oco = new Model.MODEL_Ocorrencia();
+            List<Ocorrencia> nova = new List<Ocorrencia>();
+            List<Usuario> listUsu = usu.GetAll();
+            List<Ocorrencia> listOco = oco.GetAll();
+            int codUsu = 0;
+
+            foreach(Usuario u in listUsu)
+            {
+                if (u.Cpf == txtPesquisa.Text)
+                {
+                    codUsu = u.CodUsuario;
+                    break;
+                }
+            }
+
+            foreach(Ocorrencia o in listOco)
+            {
+                if (o.CodUsuario == codUsu)
+                    nova.Add(o);
+            }
+            dgvOcorrencias.DataSource = nova;
         }
     }
 }

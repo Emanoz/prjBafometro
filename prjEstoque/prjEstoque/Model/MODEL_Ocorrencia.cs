@@ -68,7 +68,7 @@ namespace prjEstoque.Model
 
         public int Update(Ocorrencia c)
         {
-            string query = "UPDATE tbOcorrencia SET codUsuario = @codUsuario, valorAlcool = @valorAlcool, dataOcorrencia = @dataOcorrencia WHERE CodOcorrencia = @codOcorrencia";
+            string query = "UPDATE tbOcorrencia SET codUsuario = @codUsuario, valorAlcool = @valorAlcool, dataOcorrencia = @dataOcorrencia WHERE codOcorrencia = @codOcorrencia";
 
             try
             {

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             this.gbCategoria = new System.Windows.Forms.GroupBox();
             this.gbPesquisa = new System.Windows.Forms.GroupBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAlcool = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.Label();
@@ -56,13 +56,16 @@
             this.dgvOcorrencias = new System.Windows.Forms.DataGridView();
             this.menuCategoria = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opAtualizar_Campo = new System.Windows.Forms.ToolStripMenuItem();
             this.opDeletar_Campo = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCadastrar_Ocorrencia = new System.Windows.Forms.Button();
             this.btnCategoria_Slider = new System.Windows.Forms.Button();
             this.pnGb_Usuario = new System.Windows.Forms.Panel();
             this.gbUsuario = new System.Windows.Forms.GroupBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.menuUsuario = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
@@ -76,10 +79,6 @@
             this.btnUsuario_Slider = new System.Windows.Forms.Button();
             this.pnList_Equipamento = new System.Windows.Forms.Panel();
             this.dgvEquipamento = new System.Windows.Forms.DataGridView();
-            this.menuUsuario = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.atualizarCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excluirCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,9 +93,9 @@
             this.pnGb_Usuario.SuspendLayout();
             this.gbUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.menuUsuario.SuspendLayout();
             this.pnList_Equipamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipamento)).BeginInit();
-            this.menuUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -254,7 +253,7 @@
             this.pnGb_Categoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnGb_Categoria.Location = new System.Drawing.Point(0, 65);
             this.pnGb_Categoria.Name = "pnGb_Categoria";
-            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 65);
+            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 355);
             this.pnGb_Categoria.TabIndex = 1;
             // 
             // gbCategoria
@@ -273,7 +272,7 @@
             this.gbCategoria.ForeColor = System.Drawing.Color.White;
             this.gbCategoria.Location = new System.Drawing.Point(0, 0);
             this.gbCategoria.Name = "gbCategoria";
-            this.gbCategoria.Size = new System.Drawing.Size(844, 28);
+            this.gbCategoria.Size = new System.Drawing.Size(844, 318);
             this.gbCategoria.TabIndex = 0;
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "Nova ocorrência:";
@@ -281,9 +280,9 @@
             // gbPesquisa
             // 
             this.gbPesquisa.Controls.Add(this.btnPesquisar);
-            this.gbPesquisa.Controls.Add(this.textBox1);
+            this.gbPesquisa.Controls.Add(this.txtPesquisa);
             this.gbPesquisa.ForeColor = System.Drawing.Color.White;
-            this.gbPesquisa.Location = new System.Drawing.Point(35, 206);
+            this.gbPesquisa.Location = new System.Drawing.Point(35, 229);
             this.gbPesquisa.Name = "gbPesquisa";
             this.gbPesquisa.Size = new System.Drawing.Size(362, 68);
             this.gbPesquisa.TabIndex = 21;
@@ -302,13 +301,14 @@
             this.btnPesquisar.TabIndex = 22;
             this.btnPesquisar.Text = "VAI TEIA";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 26);
-            this.textBox1.TabIndex = 23;
+            this.txtPesquisa.Location = new System.Drawing.Point(6, 36);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(229, 26);
+            this.txtPesquisa.TabIndex = 23;
             // 
             // label7
             // 
@@ -356,6 +356,7 @@
             this.btnLimpar_Ocorrencia.TabIndex = 13;
             this.btnLimpar_Ocorrencia.Text = "LIMPAR";
             this.btnLimpar_Ocorrencia.UseVisualStyleBackColor = false;
+            this.btnLimpar_Ocorrencia.Click += new System.EventHandler(this.btnLimpar_Ocorrencia_Click);
             // 
             // dgvOcorrencias
             // 
@@ -375,28 +376,23 @@
             this.menuCategoria.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuCategoria.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem,
-            this.opAtualizar_Campo,
             this.opDeletar_Campo});
             this.menuCategoria.Name = "menuCategoria";
-            this.menuCategoria.Size = new System.Drawing.Size(161, 70);
+            this.menuCategoria.Size = new System.Drawing.Size(181, 70);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
-            // 
-            // opAtualizar_Campo
-            // 
-            this.opAtualizar_Campo.Name = "opAtualizar_Campo";
-            this.opAtualizar_Campo.Size = new System.Drawing.Size(160, 22);
-            this.opAtualizar_Campo.Text = "Atualizar campo";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // opDeletar_Campo
             // 
             this.opDeletar_Campo.Name = "opDeletar_Campo";
             this.opDeletar_Campo.Size = new System.Drawing.Size(160, 22);
             this.opDeletar_Campo.Text = "Excluir campo";
+            this.opDeletar_Campo.Click += new System.EventHandler(this.opDeletar_Campo_Click);
             // 
             // btnCadastrar_Ocorrencia
             // 
@@ -410,6 +406,7 @@
             this.btnCadastrar_Ocorrencia.TabIndex = 11;
             this.btnCadastrar_Ocorrencia.Text = "CADASTRAR";
             this.btnCadastrar_Ocorrencia.UseVisualStyleBackColor = false;
+            this.btnCadastrar_Ocorrencia.Click += new System.EventHandler(this.btnCadastrar_Ocorrencia_Click);
             // 
             // btnCategoria_Slider
             // 
@@ -471,6 +468,36 @@
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.Size = new System.Drawing.Size(398, 239);
             this.dgvUsuarios.TabIndex = 21;
+            // 
+            // menuUsuario
+            // 
+            this.menuUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem1,
+            this.atualizarCampoToolStripMenuItem,
+            this.excluirCampoToolStripMenuItem});
+            this.menuUsuario.Name = "menuUsuario";
+            this.menuUsuario.Size = new System.Drawing.Size(161, 70);
+            // 
+            // refreshToolStripMenuItem1
+            // 
+            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.refreshToolStripMenuItem1.Text = "Refresh";
+            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+            // 
+            // atualizarCampoToolStripMenuItem
+            // 
+            this.atualizarCampoToolStripMenuItem.Name = "atualizarCampoToolStripMenuItem";
+            this.atualizarCampoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.atualizarCampoToolStripMenuItem.Text = "Atualizar campo";
+            this.atualizarCampoToolStripMenuItem.Click += new System.EventHandler(this.atualizarCampoToolStripMenuItem_Click);
+            // 
+            // excluirCampoToolStripMenuItem
+            // 
+            this.excluirCampoToolStripMenuItem.Name = "excluirCampoToolStripMenuItem";
+            this.excluirCampoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.excluirCampoToolStripMenuItem.Text = "Excluir campo";
+            this.excluirCampoToolStripMenuItem.Click += new System.EventHandler(this.excluirCampoToolStripMenuItem_Click);
             // 
             // txtCpf
             // 
@@ -595,14 +622,14 @@
             this.dgvEquipamento.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvEquipamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEquipamento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEquipamento.ColumnHeadersHeight = 35;
             this.dgvEquipamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEquipamento.Location = new System.Drawing.Point(0, 0);
@@ -611,36 +638,6 @@
             this.dgvEquipamento.RowHeadersWidth = 51;
             this.dgvEquipamento.Size = new System.Drawing.Size(844, 662);
             this.dgvEquipamento.TabIndex = 1;
-            // 
-            // menuUsuario
-            // 
-            this.menuUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem1,
-            this.atualizarCampoToolStripMenuItem,
-            this.excluirCampoToolStripMenuItem});
-            this.menuUsuario.Name = "menuUsuario";
-            this.menuUsuario.Size = new System.Drawing.Size(161, 70);
-            // 
-            // refreshToolStripMenuItem1
-            // 
-            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.refreshToolStripMenuItem1.Text = "Refresh";
-            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
-            // 
-            // atualizarCampoToolStripMenuItem
-            // 
-            this.atualizarCampoToolStripMenuItem.Name = "atualizarCampoToolStripMenuItem";
-            this.atualizarCampoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.atualizarCampoToolStripMenuItem.Text = "Atualizar campo";
-            this.atualizarCampoToolStripMenuItem.Click += new System.EventHandler(this.atualizarCampoToolStripMenuItem_Click);
-            // 
-            // excluirCampoToolStripMenuItem
-            // 
-            this.excluirCampoToolStripMenuItem.Name = "excluirCampoToolStripMenuItem";
-            this.excluirCampoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.excluirCampoToolStripMenuItem.Text = "Excluir campo";
-            this.excluirCampoToolStripMenuItem.Click += new System.EventHandler(this.excluirCampoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -675,9 +672,9 @@
             this.gbUsuario.ResumeLayout(false);
             this.gbUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            this.menuUsuario.ResumeLayout(false);
             this.pnList_Equipamento.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipamento)).EndInit();
-            this.menuUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -706,7 +703,6 @@
         private System.Windows.Forms.ContextMenuStrip menuCategoria;
         private System.Windows.Forms.Button btnCadastrar_Ocorrencia;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opAtualizar_Campo;
         private System.Windows.Forms.ToolStripMenuItem opDeletar_Campo;
         private System.Windows.Forms.Button btnLimpar_Ocorrencia;
         private System.Windows.Forms.Panel pnGb_Usuario;
@@ -729,7 +725,7 @@
         private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.GroupBox gbPesquisa;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.ContextMenuStrip menuUsuario;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem atualizarCampoToolStripMenuItem;
