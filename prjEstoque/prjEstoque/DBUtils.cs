@@ -11,7 +11,7 @@ namespace prjEstoque
 {
     class DBUtils
     {
-        private string connString = @"Data Source=pc-nana\sqlexpress;Initial Catalog=bdBafometro;Integrated Security=True";
+        private string connString = @"Data Source=C-204\SQLEXPRESS;Initial Catalog=bdBafometro;Integrated Security=True";
 
         public DBUtils()
         {

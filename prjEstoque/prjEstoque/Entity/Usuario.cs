@@ -22,6 +22,14 @@ namespace prjEstoque.Entity
             DataNascimento = dataNascimento;
         }
 
+        public Usuario(string nome, string cpf, string cnh, DateTime dataNascimento)
+        {
+            Nome = nome;
+            Cpf = cpf;
+            Cnh = cnh;
+            DataNascimento = dataNascimento;
+        }
+
         public int CodUsuario { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }

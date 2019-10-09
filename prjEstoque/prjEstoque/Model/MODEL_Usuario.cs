@@ -70,7 +70,7 @@ namespace prjEstoque.Model
 
             public int Update(Usuario c)
             {
-                string query = "UPDATE tbUsuario SET nome = @nome, cpf = @cpf, cnh = @cnh, dataNascimento = @dataNascimento WHERE CodUsuario = @codUsuario";
+                string query = "UPDATE tbUsuario SET nome = @nome, cpf = @cpf, cnh = @cnh, dataNascimento = @dataNascimento WHERE codUsuario = @codUsuario";
 
                 try
                 {

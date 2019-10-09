@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -76,6 +76,10 @@
             this.btnUsuario_Slider = new System.Windows.Forms.Button();
             this.pnList_Equipamento = new System.Windows.Forms.Panel();
             this.dgvEquipamento = new System.Windows.Forms.DataGridView();
+            this.menuUsuario = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirCampoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.pnList_Equipamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipamento)).BeginInit();
+            this.menuUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -249,7 +254,7 @@
             this.pnGb_Categoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnGb_Categoria.Location = new System.Drawing.Point(0, 65);
             this.pnGb_Categoria.Name = "pnGb_Categoria";
-            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 238);
+            this.pnGb_Categoria.Size = new System.Drawing.Size(844, 65);
             this.pnGb_Categoria.TabIndex = 1;
             // 
             // gbCategoria
@@ -268,7 +273,7 @@
             this.gbCategoria.ForeColor = System.Drawing.Color.White;
             this.gbCategoria.Location = new System.Drawing.Point(0, 0);
             this.gbCategoria.Name = "gbCategoria";
-            this.gbCategoria.Size = new System.Drawing.Size(844, 201);
+            this.gbCategoria.Size = new System.Drawing.Size(844, 28);
             this.gbCategoria.TabIndex = 0;
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "Nova ocorrência:";
@@ -453,10 +458,15 @@
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.ContextMenuStrip = this.menuUsuario;
             this.dgvUsuarios.Location = new System.Drawing.Point(442, 32);
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.Size = new System.Drawing.Size(398, 239);
@@ -523,6 +533,7 @@
             this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnCadastrar
             // 
@@ -536,6 +547,7 @@
             this.btnCadastrar.TabIndex = 11;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtNome
             // 
@@ -583,14 +595,14 @@
             this.dgvEquipamento.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvEquipamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEquipamento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEquipamento.ColumnHeadersHeight = 35;
             this.dgvEquipamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEquipamento.Location = new System.Drawing.Point(0, 0);
@@ -599,6 +611,36 @@
             this.dgvEquipamento.RowHeadersWidth = 51;
             this.dgvEquipamento.Size = new System.Drawing.Size(844, 662);
             this.dgvEquipamento.TabIndex = 1;
+            // 
+            // menuUsuario
+            // 
+            this.menuUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem1,
+            this.atualizarCampoToolStripMenuItem,
+            this.excluirCampoToolStripMenuItem});
+            this.menuUsuario.Name = "menuUsuario";
+            this.menuUsuario.Size = new System.Drawing.Size(161, 70);
+            // 
+            // refreshToolStripMenuItem1
+            // 
+            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem1.Text = "Refresh";
+            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+            // 
+            // atualizarCampoToolStripMenuItem
+            // 
+            this.atualizarCampoToolStripMenuItem.Name = "atualizarCampoToolStripMenuItem";
+            this.atualizarCampoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atualizarCampoToolStripMenuItem.Text = "Atualizar campo";
+            this.atualizarCampoToolStripMenuItem.Click += new System.EventHandler(this.atualizarCampoToolStripMenuItem_Click);
+            // 
+            // excluirCampoToolStripMenuItem
+            // 
+            this.excluirCampoToolStripMenuItem.Name = "excluirCampoToolStripMenuItem";
+            this.excluirCampoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excluirCampoToolStripMenuItem.Text = "Excluir campo";
+            this.excluirCampoToolStripMenuItem.Click += new System.EventHandler(this.excluirCampoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -635,6 +677,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.pnList_Equipamento.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipamento)).EndInit();
+            this.menuUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -687,6 +730,10 @@
         private System.Windows.Forms.GroupBox gbPesquisa;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ContextMenuStrip menuUsuario;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem atualizarCampoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirCampoToolStripMenuItem;
     }
 }
 

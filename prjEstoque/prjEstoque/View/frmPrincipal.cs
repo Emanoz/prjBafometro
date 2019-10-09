@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjEstoque.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,6 +78,48 @@ namespace prjEstoque
             {
                 cbUsuario.Items.Add(u.Nome);
             }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Usuario mUsuario = new Model.MODEL_Usuario();
+            Usuario u = new Usuario(txtNome.Text, txtCpf.Text, txtCnh.Text, dtpNascimento.Value);
+            if (mUsuario.Insert(u) == 0)
+                MessageBox.Show("Erro ao inserir o registro!");
+            else
+                refreshToolStripMenuItem1_Click(null, null);
+
+        }
+
+        private void excluirCampoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Usuario mUsuario = new Model.MODEL_Usuario();
+            if (mUsuario.Delete(int.Parse(dgvUsuarios[0, dgvUsuarios.CurrentRow.Index].Value.ToString())) == 0)
+                MessageBox.Show("Erro ao excluir o registro!");
+            else
+                refreshToolStripMenuItem1_Click(null, null);
+        }
+
+        private void refreshToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Usuario mUsuario = new Model.MODEL_Usuario();
+            dgvUsuarios.DataSource = mUsuario.GetAll();
+            FormatarDgv.FormatarUsuario(dgvUsuarios);
+        }
+
+        private void atualizarCampoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Model.MODEL_Usuario mUsuario = new Model.MODEL_Usuario();
+            Usuario u = new Usuario(int.Parse(dgvUsuarios[0, dgvUsuarios.CurrentRow.Index].Value.ToString()), txtNome.Text, txtCpf.Text, txtCnh.Text, dtpNascimento.Value);
+            if (mUsuario.Update(u) == 0)
+                MessageBox.Show("Erro ao atualizar o registro!");
+            else
+                refreshToolStripMenuItem1_Click(null, null);
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            util.LimparCampos(gbUsuario.Controls);
         }
     }
 }
